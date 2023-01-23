@@ -1,3 +1,12 @@
+## Installation
+
+ADD .env environement variable to server
+then
+
+```bash
+  npm install
+```
+
 ## Usage
 
 To run the test server, run the following command
