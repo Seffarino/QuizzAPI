@@ -1,8 +1,0 @@
-Start the server : 
-npm Start
-
-Start the test server :
-npm test 
-
-Start the developpement server
-npm run dev
