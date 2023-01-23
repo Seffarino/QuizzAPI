@@ -11,9 +11,8 @@ let quizzSchema = new mongoose.Schema({
   },
   questions: [
     {
-      type: mongoose.Schema.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Question",
-      unique: true,
     },
   ],
 });

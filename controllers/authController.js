@@ -81,7 +81,12 @@ const login = asyncHandler(async (req, res) => {
     sameSite: "None", //cross-site cookie
     maxAge: 7 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
   });
-  const { password: foundPassword, ...others } = foundUser._doc;
+  const {
+    password: foundPassword,
+    quizzs,
+    questions,
+    ...others
+  } = foundUser._doc;
   // Send accessToken containing email and roles
   res.status(200).json({ accessToken, user: others });
 });
