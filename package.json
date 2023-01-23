@@ -1,0 +1,38 @@
+{
+  "name": "ecommerce_api",
+  "version": "1.0.0",
+  "description": "techNotes MERN Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "cross-env NODE_ENV=dev nodemon server",
+    "test": "cross-env NODE_ENV=test nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.1",
+    "dotenv": "^16.0.1",
+    "dotenv-flow": "^3.2.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^6.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.5.0",
+    "mongoose-sequence": "^5.3.1",
+    "save-dev": "^0.0.1-security",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.1.0",
+    "nodemon": "^2.0.19"
+  }
+}
