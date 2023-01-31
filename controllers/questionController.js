@@ -14,6 +14,14 @@ const getAllQuestions = asyncHandler(async (req, res) => {
   res.status(200).json(questions);
 });
 
+const getQuestion = asyncHandler(async (req, res) => {
+  // Get the user
+  // Get the quizzs from user
+  const id = req.params.id;
+  const question = await Question.findById(id);
+  res.status(200).json(question);
+});
+
 // @desc Create question for an user, the jwt middleware before create : req.userId , req.isAdmin ...
 // @route POST /quizz
 // @access Private
@@ -132,4 +140,5 @@ module.exports = {
   createQuestion,
   updateQuestion,
   deleteQuestion,
+  getQuestion,
 };

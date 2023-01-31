@@ -9,5 +9,5 @@ router
   .post(verifyToken, questionController.createQuestion)
   .patch(verifyToken, questionController.updateQuestion)
   .delete(verifyToken, questionController.deleteQuestion);
-
+router.route("/:id").get(verifyToken, questionController.getQuestion);
 module.exports = router;

@@ -15,6 +15,16 @@ const getAllQuizz = asyncHandler(async (req, res) => {
   res.status(200).json(quizzs);
 });
 
+// @desc Get a quizz from an user with an id
+// @route GET /quizz
+// @access Private
+const getQuizz = asyncHandler(async (req, res) => {
+  // Get the quizzs from user
+  const id = req.params.id;
+  const quizz = await Quizz.findById(id);
+  res.status(200).json(quizz);
+});
+
 // @desc Create an empty quizz the user infos are get from the previous middleware which verify the jwt : req.userId
 // @route POST /quizz
 // @access Private
@@ -165,4 +175,5 @@ module.exports = {
   deleteQuizz,
   addQuestion,
   deleteQuestion,
+  getQuizz,
 };

@@ -14,4 +14,6 @@ router
   .post(verifyToken, quizzController.createQuizz)
   .delete(verifyToken, quizzController.deleteQuizz);
 
+router.route("/:id").get(verifyToken, quizzController.getQuizz);
+
 module.exports = router;
