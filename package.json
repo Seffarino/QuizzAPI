@@ -1,7 +1,7 @@
 {
-  "name": "ecommerce_api",
+  "name": "quiz_api",
   "version": "1.0.0",
-  "description": "techNotes MERN Project",
+  "description": "quiz MERN Project",
   "main": "server.js",
   "scripts": {
     "start": "node server",
