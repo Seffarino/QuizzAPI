@@ -3,10 +3,7 @@ const router = express.Router();
 const sessionController = require("../controllers/sessionController");
 const { verifyToken } = require("../middleware/verifyJWT");
 
-router
-  .route("/")
-  .get(verifyToken, sessionController.getAllSessions)
-  .post(verifyToken, sessionController.createNewSession);
+router.route("/").post(verifyToken, sessionController.createNewSession);
 
 router
   .route("/session/:id")
