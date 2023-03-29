@@ -7,7 +7,8 @@ router.route("/").post(verifyToken, sessionController.createNewSession);
 
 router
   .route("/:id")
-  .get(verifyToken, sessionController.getSession)
-  .patch(verifyToken, sessionController.deleteSession);
+  .get(verifyToken, sessionController.getSingleSession)
+  .delete(verifyToken, sessionController.deleteSession);
 
+router.route("/quizz/:id", sessionController.getSession);
 module.exports = router;

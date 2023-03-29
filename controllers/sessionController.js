@@ -2,8 +2,16 @@ const Session = require("../models/Session");
 const Quizz = require("../models/Quizz");
 
 const asyncHandler = require("express-async-handler");
-
-// @desc Get a session
+// @desc Get a single session from the quizzId
+// @route GET /session/:quizzId
+// @access Private
+const getSingleSession = asyncHandler(async (req, res) => {
+  // Get the session
+  const id = req.params.id;
+  const session = await Session.findById(id);
+  res.status(200).json(session);
+});
+// @desc Get a session from the quizzId
 // @route GET /session/:quizzId
 // @access Private
 const getSession = asyncHandler(async (req, res) => {
@@ -69,4 +77,5 @@ module.exports = {
   createNewSession,
   deleteSession,
   getSession,
+  getSingleSession,
 };
