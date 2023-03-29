@@ -6,7 +6,7 @@ const { verifyToken } = require("../middleware/verifyJWT");
 router.route("/").post(verifyToken, sessionController.createNewSession);
 
 router
-  .route("/session/:id")
+  .route("/:id")
   .get(verifyToken, sessionController.getSession)
   .patch(verifyToken, sessionController.deleteSession);
 
