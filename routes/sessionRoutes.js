@@ -10,5 +10,7 @@ router
   .get(verifyToken, sessionController.getSingleSession)
   .delete(verifyToken, sessionController.deleteSession);
 
-router.route("/quizz/:id", sessionController.getSession);
+router.
+  route("/quizz/:id")
+  .get(verifyToken, sessionController.getSession);
 module.exports = router;

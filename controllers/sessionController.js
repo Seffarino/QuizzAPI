@@ -27,7 +27,7 @@ const getSession = asyncHandler(async (req, res) => {
 // @access Private
 const createNewSession = asyncHandler(async (req, res) => {
   const { session_name, reponses, quizz_id } = req.body;
-  console.log(quizz_id)
+  console.log(reponses)
   // Confirm data
   if (!session_name || !quizz_id || !reponses) {
     return res.status(400).json({ message: "All fields are required" });

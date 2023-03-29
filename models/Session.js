@@ -12,16 +12,7 @@ let sessionSchema = new mongoose.Schema(
     quizzId: {
       type: mongoose.Schema.Types.ObjectId,
     },
-    reponses: [
-      {
-        questionId: {
-          type: mongoose.Schema.Types.ObjectId,
-        },
-        reponses: {
-          type: Object,
-        },
-      },
-    ],
+    reponses: Array
   },
   { timestamps: true }
 );
