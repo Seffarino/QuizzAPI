@@ -1,4 +1,3 @@
-
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -9,7 +8,7 @@ const cors = require("cors");
 const corsOptions = require("./config/corsOptions");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 2300;
+const PORT = process.env.PORT || 4200;
 console.log(`Running on ${process.env.NODE_ENV} environement`);
 
 require("dotenv-flow").config();
@@ -31,6 +30,7 @@ app.use("/users", require("./routes/userRoutes"));
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/quizz", require("./routes/quizzRoutes"));
 app.use("/question", require("./routes/questionRoutes"));
+app.use("/question", require("./routes/sessionRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);

@@ -8,6 +8,9 @@ let sessionSchema = new mongoose.Schema({
   date: {
     type: String,
   },
+  quizzId: {
+    type: mongoose.Schema.Types.ObjectId,
+  },
   reponses: [
     {
       questionId: {

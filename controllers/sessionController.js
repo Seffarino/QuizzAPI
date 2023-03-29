@@ -1,4 +1,6 @@
 const Session = require("../models/Session");
+const Quizz = require("../models/Quizz");
+
 const asyncHandler = require("express-async-handler");
 
 // @desc Get all sessions
@@ -17,14 +19,15 @@ const getAllSessions = asyncHandler(async (req, res) => {
 });
 
 // @desc Get a session
-// @route GET /session
+// @route GET /session/:quizzId
 // @access Private
 const getSession = asyncHandler(async (req, res) => {
   // Get the session
-  const id = req.params.id;
-  const session = await Session.findById(id);
-  if (!session) res.status(400).json("Session ID not found");
-  res.status(200).json(session);
+  const quizz_id = req.params.id;
+  const quizz = await Quizz.findById(quizzId);
+  if (!quizz) res.status(400).json("Quizz not found");
+  const sessions = await Session.find({ quizzId: quizz_id }).exec();
+  res.status(200).json(sessions);
 });
 // @desc Create new session
 // @route POST /session

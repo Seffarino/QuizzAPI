@@ -5,16 +5,12 @@ const { verifyToken } = require("../middleware/verifyJWT");
 
 router
   .route("/session")
-  .post(verifyToken, sessionController.createNewSession)
-  .delete(verifyToken, sessionController.deleteQuestion);
+  .get(verifyToken, sessionController.getAllSessions)
+  .post(verifyToken, sessionController.createNewSession);
 
 router
-  .route("/")
-  .get(verifyToken, quizzController.getAllQuizz)
-  .patch(verifyToken, quizzController.updateQuizz)
-  .post(verifyToken, quizzController.createQuizz)
-  .delete(verifyToken, quizzController.deleteQuizz);
-
-router.route("/:id").get(verifyToken, quizzController.getQuizz);
+  .route("/sessions/:id")
+  .get(verifyToken, sessionController.getSession)
+  .patch(verifyToken, sessionController.deleteSession);
 
 module.exports = router;
