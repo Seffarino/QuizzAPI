@@ -40,7 +40,7 @@ const createNewSession = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const sessionObject = { session_name, date, reponses, quizz_id };
+  const sessionObject = { session_name, reponses, quizz_id };
 
   // Create and store new user
   const user = await Session.create(sessionObject);
