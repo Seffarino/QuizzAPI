@@ -24,7 +24,7 @@ const getAllSessions = asyncHandler(async (req, res) => {
 const getSession = asyncHandler(async (req, res) => {
   // Get the session
   const quizz_id = req.params.id;
-  const quizz = await Quizz.findById(quizzId);
+  const quizz = await Quizz.findById(quizz_id);
   if (!quizz) res.status(400).json("Quizz not found");
   const sessions = await Session.find({ quizzId: quizz_id }).exec();
   res.status(200).json(sessions);
@@ -34,13 +34,13 @@ const getSession = asyncHandler(async (req, res) => {
 // @access Private
 const createNewSession = asyncHandler(async (req, res) => {
   const { session_name, reponses, quizz_id } = req.body;
-
+  console.log(quizz_id)
   // Confirm data
-  if (!session_name || !date || !reponses) {
+  if (!session_name|| !quizz_id || !reponses) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const sessionObject = { session_name, reponses, quizz_id };
+  const sessionObject = { session_name, reponses, quizzId:quizz_id };
 
   // Create and store new user
   const user = await Session.create(sessionObject);

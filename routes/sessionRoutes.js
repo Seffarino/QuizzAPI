@@ -9,7 +9,7 @@ router
   .post(verifyToken, sessionController.createNewSession);
 
 router
-  .route("/session/:id")
+  .route("/:id")
   .get(verifyToken, sessionController.getSession)
   .patch(verifyToken, sessionController.deleteSession);
 

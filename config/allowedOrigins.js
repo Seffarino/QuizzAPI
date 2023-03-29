@@ -1,3 +1,3 @@
-const allowedOrigins = ["https://quizzeo-st.onrender.com"]; //gttp://localhost:3000
+const allowedOrigins = ["http://localhost:3000"]; //https://quizzeo-st.onrender.com
 
 module.exports = allowedOrigins;
