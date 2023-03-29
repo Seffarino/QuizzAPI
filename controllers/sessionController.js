@@ -8,10 +8,10 @@ const asyncHandler = require("express-async-handler");
 // @access Private
 const getSession = asyncHandler(async (req, res) => {
   // Get the session
-  const quizz_id = req.params.id;
+  const id = req.params.id;
   const quizz = await Quizz.findById(quizzId);
   if (!quizz) res.status(400).json("Quizz not found");
-  const sessions = await Session.find({ quizzId: quizz_id }).exec();
+  const sessions = await Session.find({ quizzId: id }).exec();
   res.status(200).json(sessions);
 });
 // @desc Create new session
