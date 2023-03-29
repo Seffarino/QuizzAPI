@@ -17,7 +17,7 @@ const getSingleSession = asyncHandler(async (req, res) => {
 const getSession = asyncHandler(async (req, res) => {
   // Get the session
   const id = req.params.id;
-  const quizz = await Quizz.findById(quizzId);
+  const quizz = await Quizz.findById(id);
   if (!quizz) res.status(400).json("Quizz not found");
   const sessions = await Session.find({ quizzId: id }).exec();
   res.status(200).json(sessions);
