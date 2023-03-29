@@ -2,31 +2,24 @@ const Session = require("../models/Session");
 const Quizz = require("../models/Quizz");
 
 const asyncHandler = require("express-async-handler");
-
-// @desc Get all sessions
-// @route GET /sessions
+// @desc Get a single session from the quizzId
+// @route GET /session/:quizzId
 // @access Private
-const getAllSessions = asyncHandler(async (req, res) => {
-  // Get all users from MongoDB
-  const sessions = await Sessions.find().exec();
-
-  // If no users
-  if (!sessions?.length) {
-    return res.status(400).json({ message: "No sessions found" });
-  }
-
-  res.status(200).json(sessions);
+const getSingleSession = asyncHandler(async (req, res) => {
+  // Get the session
+  const id = req.params.id;
+  const session = await Session.findById(id);
+  res.status(200).json(session);
 });
-
-// @desc Get a session
+// @desc Get a session from the quizzId
 // @route GET /session/:quizzId
 // @access Private
 const getSession = asyncHandler(async (req, res) => {
   // Get the session
-  const quizz_id = req.params.id;
-  const quizz = await Quizz.findById(quizz_id);
+  const id = req.params.id;
+  const quizz = await Quizz.findById(id);
   if (!quizz) res.status(400).json("Quizz not found");
-  const sessions = await Session.find({ quizzId: quizz_id }).exec();
+  const sessions = await Session.find({ quizzId: id }).exec();
   res.status(200).json(sessions);
 });
 // @desc Create new session
@@ -36,16 +29,16 @@ const createNewSession = asyncHandler(async (req, res) => {
   const { session_name, reponses, quizz_id } = req.body;
   console.log(quizz_id)
   // Confirm data
-  if (!session_name|| !quizz_id || !reponses) {
+  if (!session_name || !quizz_id || !reponses) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const sessionObject = { session_name, reponses, quizzId:quizz_id };
+  const sessionObject = { session_name, reponses, quizzId: quizz_id };
 
   // Create and store new user
-  const user = await Session.create(sessionObject);
+  const session = await Session.create(sessionObject);
 
-  if (user) {
+  if (session) {
     //created
     res.status(201).json({ message: `New session ${session_name} created` });
   } else {
@@ -81,8 +74,8 @@ const deleteSession = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-  getAllSessions,
   createNewSession,
   deleteSession,
   getSession,
+  getSingleSession,
 };
