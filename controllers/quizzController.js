@@ -37,7 +37,7 @@ const createQuizz = asyncHandler(async (req, res) => {
     { $push: { quizzs: createdQuizz } }
   );
 
-  res.status(200).json("New quizz " + name + " created for user " + req.email);
+  res.status(200).json(createdQuizz._id);
 });
 
 // @desc Update a quizz , previous middleware which verify the jwt : req.userId
