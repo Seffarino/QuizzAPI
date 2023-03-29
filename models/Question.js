@@ -6,11 +6,9 @@ let questionSchema = new mongoose.Schema({
     enum: ["qcu", "qcm", "num"],
     required: true,
   },
-  tags: [
-    {
-      libelle: { type: String },
-    },
-  ],
+  tags: {
+    type:Array,
+  },
   libelle: { type: String, required: true },
   reponses: [
     {

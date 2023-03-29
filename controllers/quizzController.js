@@ -99,6 +99,9 @@ const addQuestion = asyncHandler(async (req, res) => {
   const { quizzId, questionId } = req.body;
   /* TODO : remove these validation and create a middleware */
   // Data validation 2 id needed
+  console.log(quizzId)
+  console.log(questionId)
+
   if (!quizzId) {
     return res.status(400).json({ message: "Quizz ID Required" });
   }
@@ -106,6 +109,7 @@ const addQuestion = asyncHandler(async (req, res) => {
   if (!questionId) {
     return res.status(400).json({ message: "Question ID Required" });
   }
+
 
   // Does the quizz exist ?
   const quizz = await Quizz.findById(quizzId).populate("questions");
