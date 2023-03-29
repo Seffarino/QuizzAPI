@@ -30,7 +30,7 @@ app.use("/users", require("./routes/userRoutes"));
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/quizz", require("./routes/quizzRoutes"));
 app.use("/question", require("./routes/questionRoutes"));
-app.use("/question", require("./routes/sessionRoutes"));
+app.use("/session", require("./routes/sessionRoutes"));
 
 app.all("*", (req, res) => {
   res.status(404);

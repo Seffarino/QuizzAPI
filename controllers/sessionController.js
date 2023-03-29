@@ -33,21 +33,21 @@ const getSession = asyncHandler(async (req, res) => {
 // @route POST /session
 // @access Private
 const createNewSession = asyncHandler(async (req, res) => {
-  const { session_name, date, reponses } = req.body;
+  const { session_name, reponses, quizz_id } = req.body;
 
   // Confirm data
   if (!session_name || !date || !reponses) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const sessionObject = { session_name, date, reponses };
+  const sessionObject = { session_name, date, reponses, quizz_id };
 
   // Create and store new user
   const user = await Session.create(sessionObject);
 
   if (user) {
     //created
-    res.status(201).json({ message: `New user ${session_name} created` });
+    res.status(201).json({ message: `New session ${session_name} created` });
   } else {
     res.status(400).json({ message: "Invalid user data received" });
   }
