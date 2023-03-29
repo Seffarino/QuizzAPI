@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -57,7 +57,6 @@ mongoose.connection.on("error", (err) => {
     "mongoErrLog.log"
   );
 });
-=======
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -116,4 +115,3 @@ mongoose.connection.on("error", (err) => {
     "mongoErrLog.log"
   );
 });
->>>>>>> e0cd0b41ba7a63014bbf1549657880d909c01af0
