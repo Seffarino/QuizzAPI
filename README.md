@@ -1,3 +1,7 @@
+# QuizzAPI
+
+REST API for an interactive quiz platform inspired by Kahoot.
+
 ## Installation
 
 ADD .env environement variable to server
